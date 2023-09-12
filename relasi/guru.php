@@ -20,13 +20,12 @@
                     <th>Nama Guru</th>
                     <th>NIK</th>
                     <th>Gender</th>
-                    <th>Walikelas</th>
                     <th>Guru Mapel</th>
                 </tr>
             </thead>
             <tbody class="table-group-divider">
                 <?php 
-                    $sql = "select * from guru INNER JOIN mapel ON guru.id_mapel = mapel.id INNER JOIN kelas ON kelas.id_guru_walikelas = guru.id";
+                    $sql = "select * from guru INNER JOIN mapel ON guru.id_mapel = mapel.id";
                     $result = mysqli_query($conn, $sql);
                     $no = 1;
                     foreach ($result as $row) :
@@ -36,7 +35,6 @@
                     <td><?= $row['nama_guru']; ?></td>
                     <td><?= $row['nik']; ?></td>
                     <td><?= $row['gender']; ?></td>
-                    <td><?= $row['tingkat_kelas'].' '.$row['jurusan_kelas']; ?></td>
                     <td><?= $row['nama_mapel']; ?></td>
                 </tr>
                 <?php endforeach; ?>
